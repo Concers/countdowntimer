@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         val millisInFuture: Long = minute * 1500
         val countDownInterval: Long = 1000
 
+        text_view.text = timeString(millisInFuture)
+
 
         button_start.setOnClickListener {
             timer(millisInFuture, countDownInterval).start()
