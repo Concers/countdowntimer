@@ -3,13 +3,16 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dbf2f9"
+    android:background="#000"
+
     android:orientation="vertical"
     android:padding="16dp">
 
     <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -25,6 +28,20 @@
             android:layout_height="wrap_content"
             android:enabled="false"
             android:text="Stop(Cancel)" />
+
+        <Button
+            android:id="@+id/button_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Pause" />
+
+        <Button
+            android:id="@+id/button_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Resume" />
     </LinearLayout>
 
     <TextView
@@ -32,9 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_margin="25dp"
         android:gravity="center"
-        android:textColor="#224889"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textColor="#ff0011"
+        android:textSize="25sp" />
 </LinearLayout>
