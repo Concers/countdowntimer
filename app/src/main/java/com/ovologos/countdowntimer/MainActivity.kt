@@ -1,21 +1,25 @@
 package com.ovologos.countdowntimer
 
-import android.os.Bundle
-import android.os.CountDownTimer
+import android.media.MediaPlayer
+import android.os.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
+
 
 class MainActivity : AppCompatActivity() {
     private var isPaused = false
     private var isCancelled = false
     private var resumeFromMillis: Long = 0
+    lateinit var player: MediaPlayer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val millisInFuture: Long = 1500000
+        val millisInFuture: Long = 3000
         val countDownInterval: Long = 1000
 
 
@@ -106,11 +110,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            @RequiresApi(Build.VERSION_CODES.M)
             override fun onFinish() {
-                text_view.text = "Done"
+                val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                            500,
+                            VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                    )
+                } else {
+
+                    vibrator.run {
+                        1500
+                    }
+                }
+
+                text_view.text = "Yeniden başlayınız "
+                button_start.isEnabled = true
+                button_stop.isEnabled = false
+
+
             }
-        }.start()
+        }
+
+
     }
+
 }
 
 
