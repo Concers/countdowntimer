@@ -17,6 +17,7 @@
         android:orientation="horizontal">
 
         <Button
+
             android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
     </LinearLayout>
 
     <TextView
+        android:paddingTop="60dp"
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
