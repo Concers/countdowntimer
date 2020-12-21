@@ -2,6 +2,7 @@ package com.ovologos.countdowntimer
 
 import android.media.MediaPlayer
 import android.os.*
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             button_pause.isEnabled = true
             isCancelled = false
             isPaused = false
+
+            button_start.visibility = View.GONE
+
+
         }
 
 
@@ -110,6 +115,7 @@ class MainActivity : AppCompatActivity() {
 
             @RequiresApi(Build.VERSION_CODES.M)
             override fun onFinish() {
+                button_start.visibility = View.INVISIBLE
                 val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     vibrator.vibrate(
@@ -125,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                text_view.text = "Yeniden başlayınız "
+
                 button_start.isEnabled = true
                 button_stop.isEnabled = false
 
@@ -135,6 +141,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 }
 
